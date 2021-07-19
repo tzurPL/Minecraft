@@ -15,3 +15,29 @@ renderer.setSize( window.innerWidth, window.innerHeight )
 camera.position.setZ(30);
 
 renderer.render( scene, camera );
+
+const loader = new THREE.FontLoader( 10, 3, 16, 100 );
+
+loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+	const geometry = new THREE.TextGeometry( 'World Of Cookies', {
+		font: font,
+		size: 80,
+		height: 5,
+		curveSegments: 12,
+		bevelEnabled: true,
+		bevelThickness: 10,
+		bevelSize: 8,
+		bevelOffset: 0,
+		bevelSegments: 5
+	} );
+} );
+
+scene.add(geometry)
+
+function animate() {
+  requestAnimationFrame( animate );
+  renderer.render( scene, camera );
+}
+
+animate()
